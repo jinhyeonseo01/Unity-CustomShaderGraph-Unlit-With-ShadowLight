@@ -40,6 +40,8 @@ This means that you can immediately leverage Main Light functionality without ha
 아래 이미지를 통해 셰이더의 적용 예시와 가이드를 확인할 수 있습니다.  
 The images below illustrate examples and guides for applying the shader.
 
-![Guide Image 1](./docs/Guide_1.png)  
 ![Guide Image 2](./docs/Guide_3.png)  
+![Guide Image 1](./docs/Guide_1.png)  
+![Guide Image 3](./docs/Guide_4.png)
+![Guide Image 3](./docs/Guide_5.png)  
 ![Guide Image 3](./docs/Guide_2.png)
