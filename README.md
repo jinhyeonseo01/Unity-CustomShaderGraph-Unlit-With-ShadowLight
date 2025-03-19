@@ -1,17 +1,16 @@
 # Unity Custom ShaderGraph-Unlit-With-Shadow
 
-**이 레포지토리는 Unity의 Shader Graph를 활용하여 Unlit 셰이더의 빠른 렌더링과 함께 Shadow 기능을 지원하는 Custom Shader를 제공합니다.**  
+**Unity의 Shader Graph 커스터마이징을 통해 직접 키워드를 정의할 필요 없이 Shadow Node를 사용하는 레포지토리.**  
 
 <details>  
   <summary>English</summary> 
-This repository offers a custom shader built with Unity's Shader Graph, combining the fast rendering of Unlit shaders with shadow support.  
+This repository utilizes a Shadow Node through Unity's Custom Shader Graph without the need to manually define keywords.
 </details>  
 
 * * *  
 
 ## 필요한 이유 / Why it's necessary  
 이 레포지토리는 Unity의 Shader Graph를 커스터마이징하여 새로운 그래프를 추가함으로써, Unlit 셰이더에서도 Main Light를 사용 가능하도록 하는 레포지토리입니다.  
-
 
 유니티의 각종 쉐이더 함수들을 사용하기 위해 Keyword를 직접 정의할 필요 없이 일반 Lit Shader 와 동등하게 키워드를 적용받을 수 있습니다.  
 
@@ -20,9 +19,11 @@ This repository offers a custom shader built with Unity's Shader Graph, combinin
 <details>  
   <summary>English</summary>  
 
-This repository customizes Unity's Shader Graph by adding a new graph, enabling the use of Main Light fully and seamlessly even with Unlit shaders. It allows you to benefit from keywords and various Unity shader functions on par with a standard Lit Shader—without the need to define the keywords manually.
+This repository customizes Unity's Shader Graph by adding a new graph, enabling the use of Main Light fully and seamlessly even with Unlit shaders.  
 
-This means that you can immediately leverage Main Light functionality without having to explicitly define keywords like _MAIN_LIGHT_SHADOWS_CASCADE.
+It allows you to benefit from keywords and various Unity shader functions on par with a standard Lit Shader—without the need to define the keywords manually.  
+
+This means that you can immediately leverage Main Light functionality without having to explicitly define keywords like _MAIN_LIGHT_SHADOWS_CASCADE.  
 
 </details>
 
