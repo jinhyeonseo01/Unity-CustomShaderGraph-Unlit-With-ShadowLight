@@ -27,13 +27,32 @@ This means that you can immediately leverage Main Light functionality without ha
 
 </details>
 
-## 최신 테스트 버전 / Latest Tested Version
-- 테스트 완료 버전 **6000.0.31f URP** (*Latest tested version: **6000.0.31f URP***)
+## Installation
+
+This package can be installed using either **Direct Project Open** or **Unity Package Manager (UPM)**.  
+
+### Direct Project Open  
+*(Choose this option if direct customization is needed)*
+1. Clone the repository to your local machine.  
+2. Open the cloned project in Unity.  
+   
+### Unity Package Manager (UPM) Installation  
+To install via UPM, open Unity's Package Manager and enter the following Git URL:  
+
+``` text
+https://github.com/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-Shadow.git?path=/Assets/CustomShaderGraph
+```
+
+* * *
+## 최신 테스트 버전 / Latest Tested Version  
+- 테스트 완료 버전 **6000.0.31f URP** (*Latest tested version: **6000.0.31f URP***)  
 
 ## 시스템 요구 사항 / System Requirements
 
-- Unity **6000.0.9f0** 이상 (*Unity **6000.0.9f0** or later*)
-- Shader Graph **17.0.3** 이상 (*Shader Graph **17.0.3** or later*)
+- Unity **6000.0.9f0** 이상 (*Unity **6000.0.9f0** or later*)  
+- Shader Graph **17.0.3** 이상 (*Shader Graph **17.0.3** or later*)  
+
+* * *
 
 ## 예제 가이드 / Example Guide
 
