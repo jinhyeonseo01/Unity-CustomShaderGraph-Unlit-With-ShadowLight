@@ -25,29 +25,36 @@ namespace UnityEditor.ShaderGraph
 
         static string MainLightFull(
             [Slot(0, Binding.WorldSpacePosition)] Vector3 PositionWS,
-            [Slot(1, Binding.None)] Vector1 occlusion,
-            [Slot(2, Binding.None)] out Vector3 Direction,
-            [Slot(3, Binding.None)] out Vector4 Color,
-            [Slot(4, Binding.None)] out Vector1 DistanceAttenuation,
-            [Slot(5, Binding.None)] out Vector1 ShadowAttenuation)
+            [Slot(1, Binding.ScreenPosition)] Vector4 screenUV,
+            [Slot(2, Binding.None)] Vector1 occlusion,
+            [Slot(3, Binding.None)] out Vector3 Direction,
+            [Slot(4, Binding.None)] out Vector4 Color,
+            [Slot(5, Binding.None)] out Vector1 DistanceAttenuation,
+            [Slot(6, Binding.None)] out Vector1 ShadowAttenuation,
+            [Slot(7, Binding.None)] out Vector1 DirectAO,
+            [Slot(8, Binding.None)] out Vector1 IndirectAO)
         {
             Direction = default;
             Color = default;
             DistanceAttenuation = default;
             ShadowAttenuation = default;
+            DirectAO = default;
+            IndirectAO = default;
 
             return
 @"
 {
     // occlusion 값을 노드 입력으로 받을 수도 있지만 여기서는 고정 1.0(=차폐 없음)으로 예시
 
-    #ifdef SHADERGRAPH_PREVIEW  // SHADERGRAPH_PREVIEW (프리뷰 모드)
-        // 프리뷰용 고정값 강제 출력
-        Color = $precision4(1, 1, 1, 1);
-        Direction = $precision3(-0.707, 0.707, 0);
-        ShadowAttenuation = 1;
-        DistanceAttenuation = 1;
-    #else 
+
+    Color = $precision4(1, 1, 1, 1);
+    Direction = $precision3(-0.707, 0.707, 0);
+    ShadowAttenuation = 1;
+    DistanceAttenuation = 1;
+    DirectAO = 1;
+    IndirectAO = 1;
+
+    #ifndef SHADERGRAPH_PREVIEW  // SHADERGRAPH_PREVIEW (프리뷰 모드)
 
     #include ""Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"" // Added first
     #include ""Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl""
@@ -73,13 +80,21 @@ namespace UnityEditor.ShaderGraph
 
     Light light = GetMainLight(shadowCoord, PositionWS, shadowMask);
 
-    AmbientOcclusionFactor aoFactor = CreateAmbientOcclusionFactor(normalizedScreenSpaceUV, occlusion);
+
     #if defined(_SCREEN_SPACE_OCCLUSION) && !defined(_SURFACE_TYPE_TRANSPARENT)
+
+        AmbientOcclusionFactor aoFactor = CreateAmbientOcclusionFactor(normalizedScreenSpaceUV, occlusion);
+
         if (IsLightingFeatureEnabled(DEBUGLIGHTINGFEATUREFLAGS_AMBIENT_OCCLUSION))
         {
             light.color *= aoFactor.directAmbientOcclusion;
         }
+
+        AmbientOcclusionFactor aoFactor2 = GetScreenSpaceAmbientOcclusion(screenUV);
+        DirectAO = aoFactor2.indirectAmbientOcclusion;
+        IndirectAO = aoFactor2.directAmbientOcclusion;
     #endif
+
 
     Color = $precision4(light.color.xyz, 1);
     Direction = light.direction;
