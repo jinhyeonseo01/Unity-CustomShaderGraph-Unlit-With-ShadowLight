@@ -984,7 +984,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
             const string customUnlitPass = ConfigPath.customUnlitForwardPassPath;
             const string customUnlitGBufferPass = ConfigPath.customUnlitGBufferPassPath;
 
-
+            static readonly string a = AppDomain.CurrentDomain.BaseDirectory;
 
             public static readonly IncludeCollection Forward = new IncludeCollection
             {
