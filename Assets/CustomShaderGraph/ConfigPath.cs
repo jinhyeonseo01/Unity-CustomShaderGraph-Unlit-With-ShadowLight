@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class ConfigPath
 {
-    public const string rootPath = "Assets/CustomShaderGraph/";
-    
-    public const string customUnlitForwardPassPath = rootPath + "Custom Tamplate/Editor/ShaderGraph/Includes/UnlitPass.hlsl";
-    public const string customUnlitGBufferPassPath = rootPath + "Custom Tamplate/Editor/ShaderGraph/Includes/UnlitGBufferPass.hlsl";
-
-    public static readonly string RootPath = GetRootPath();
+    public const string packageName = "com.clrain.customshadergraph";
+    public static readonly string customUnlitForwardPassPath = $"{GetRootPath()}Custom Tamplate/Editor/ShaderGraph/Includes/UnlitPass.hlsl";
+    public static readonly string customUnlitGBufferPassPath = $"{GetRootPath()}Custom Tamplate/Editor/ShaderGraph/Includes/UnlitGBufferPass.hlsl";
 
     public static string GetRootPath([CallerFilePath] string filePath = "")
     {
-        // 파일 경로의 구분자를 통일 (슬래시 사용)
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
         filePath = filePath.Replace("\\", "/");
-        // 파일이 위치한 디렉토리를 가져옴
-        string directory = System.IO.Path.GetDirectoryName(filePath);
-        // directory에도 Replace 적용
-        directory = directory.Replace("\\", "/");
-
-        // Assets 폴더에 있는 경우
-        int assetsIndex = directory.IndexOf("Assets/");
-        if (assetsIndex >= 0)
+        filePath = System.IO.Path.GetDirectoryName(filePath);
+        filePath = filePath.Replace("\\", "/");
+        projectRoot = projectRoot.Replace("\\", "/");
+        if (filePath.StartsWith(projectRoot))
         {
-            // "Assets" 이후의 경로를 반환 (예: Assets/CustomShaderGraph)
-            return directory.Substring(assetsIndex) + "/";
+            string relativePath = filePath.Substring(projectRoot.Length);
+            if (relativePath.StartsWith("/"))
+                relativePath = relativePath.Substring(1);
+            if (relativePath.StartsWith("Assets/"))
+            {
+                return relativePath + "/";
+            }
         }
-
-        return "Packages/com.clrain.customshadergraph/";
+        return $"Packages/{packageName}/";
     }
+
 }

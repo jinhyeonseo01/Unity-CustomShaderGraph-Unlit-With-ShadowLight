@@ -981,10 +981,8 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
             const string k2DPass = "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/PBR2DPass.hlsl";
 
 
-            const string customUnlitPass = ConfigPath.customUnlitForwardPassPath;
-            const string customUnlitGBufferPass = ConfigPath.customUnlitGBufferPassPath;
-
-            static readonly string a = AppDomain.CurrentDomain.BaseDirectory;
+            static readonly string customUnlitPass = ConfigPath.customUnlitForwardPassPath;
+            static readonly string customUnlitGBufferPass = ConfigPath.customUnlitGBufferPassPath;
 
             public static readonly IncludeCollection Forward = new IncludeCollection
             {
