@@ -28,14 +28,6 @@ public class ConfigPath
             return directory.Substring(assetsIndex) + "/";
         }
 
-        // Packages 폴더에 있는 경우
-        int packagesIndex = directory.IndexOf("Packages/");
-        if (packagesIndex >= 0)
-        {
-            // "Packages" 이후의 경로를 반환 (예: Packages/Unity Custom Shader Graph)
-            return directory.Substring(packagesIndex) + "/";
-        }
-
-        return filePath;
+        return "Packages/com.clrain.customshadergraph/";
     }
 }
