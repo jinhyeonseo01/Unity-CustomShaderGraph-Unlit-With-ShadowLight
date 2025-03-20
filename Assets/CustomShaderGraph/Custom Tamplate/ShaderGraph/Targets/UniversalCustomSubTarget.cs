@@ -33,7 +33,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
 
         public UniversalCustomSubTarget()
         {
-            displayName = "Custom Shader";
+            displayName = "Custom Unlit";
         }
 
         protected override ShaderID shaderID => ShaderID.SG_Lit;

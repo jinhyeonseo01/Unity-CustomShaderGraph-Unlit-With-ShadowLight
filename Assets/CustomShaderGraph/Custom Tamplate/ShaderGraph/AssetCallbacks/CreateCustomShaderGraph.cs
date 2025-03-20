@@ -31,7 +31,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
         //        new NormalControl(CoordinateSpace.Object), ShaderStage.Fragment);
         //}
 
-        [MenuItem("Assets/Create/Shader Graph/URP/Custom/Custom Shader Graph", priority = CoreUtils.Priorities.assetsCreateShaderMenuPriority)]
+        [MenuItem("Assets/Create/Shader Graph/URP/Custom Unlit Shader Graph", priority = CoreUtils.Priorities.assetsCreateShaderMenuPriority)]
         public static void CreateCustomGraph()
         {
             var target = (UniversalTarget)Activator.CreateInstance(typeof(UniversalTarget));
