@@ -5,8 +5,15 @@ using UnityEngine;
 public class ConfigPath
 {
     public const string packageName = "com.clrain.customshadergraph";
-    public static readonly string customUnlitForwardPassPath = $"{GetRootPath()}Custom Tamplate/Editor/ShaderGraph/Includes/UnlitPass.hlsl";
-    public static readonly string customUnlitGBufferPassPath = $"{GetRootPath()}Custom Tamplate/Editor/ShaderGraph/Includes/UnlitGBufferPass.hlsl";
+
+
+    // User Include hlsl Path
+    public static readonly string customUnlitForwardPassPath =  GetRootPath() + "Includes/CustomUnlitForwardPass.hlsl";
+    public static readonly string customUnlitGBufferPassPath =  GetRootPath() + "Includes/CustomUnlitGBufferPass.hlsl";
+
+    public static readonly string customLitForwardPassPath =    GetRootPath() + "Includes/CustomLitForwardPass.hlsl";
+    public static readonly string customLitGBufferPassPath =    GetRootPath() + "Includes/CustomLitGBufferPass.hlsl";
+    public static readonly string customLit2DPassPath =         GetRootPath() + "Includes/CustomLit2DPass.hlsl";
 
     public static string GetRootPath([CallerFilePath] string filePath = "")
     {

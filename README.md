@@ -7,9 +7,9 @@
 This repository utilizes a Shadow Node through Unity's Custom Shader Graph without the need to manually define keywords.
 </details>  
 
-* * *  
+![Guide Image 3](./docs/Guide_3.png) 
 
-## 필요한 이유 / Why it's necessary  
+## 요약 / Summary
 이 레포지토리는 Unity의 Shader Graph를 커스터마이징하여 새로운 그래프를 추가함으로써, Unlit 셰이더에서도 Main Light를 사용 가능하도록 하는 레포지토리입니다.  
 
 유니티의 각종 쉐이더 함수들을 사용하기 위해 Keyword를 직접 정의할 필요 없이 일반 Lit Shader 와 동등하게 키워드를 적용받을 수 있습니다.  
@@ -27,25 +27,29 @@ This means that you can immediately leverage Main Light functionality without ha
 
 </details>
 
+* * *
+
 ## Installation
 
 This package can be installed using either **Direct Project Open** or **Unity Package Manager (UPM)**.  
 
-### Direct Project Open  
-*(Choose this option if direct customization is needed)*
-1. Clone the repository to your local machine.  
-2. Open the cloned project in Unity.  
-   
-### Unity Package Manager (UPM) Installation  
-To install via UPM, open Unity's Package Manager and enter the following Git URL:  
+  - Package Manager →  Install Package Manager from git URL
+    ``` text
+    https://github.com/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-Shadow.git?path=/Assets/CustomShaderGraph
+    ```
+  - Alternatively, Clone the repository to your local
+    *(Choose this option if direct customization is needed)*  
 
-``` text
-https://github.com/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-Shadow.git?path=/Assets/CustomShaderGraph
-```
+### Compatibility  
+
+**Libraries That Work Well Together**  
+ - [URP Shader Graph Custom Lighting Node](https://github.com/Cyanilux/URP_ShaderGraphCustomLighting)
+   - A library that supports various light-related Shader Graph nodes.  
 
 * * *
+
 ## 최신 테스트 버전 / Latest Tested Version  
-- 테스트 완료 버전 **6000.0.31f URP** (*Latest tested version: **6000.0.31f URP***)  
+- 테스트 완료 버전 **6000.0.42f URP** (*Latest tested version: **6000.0.42f URP***)  
 
 ## 시스템 요구 사항 / System Requirements
 
@@ -59,8 +63,8 @@ https://github.com/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-Shadow.git?p
 아래 이미지를 통해 셰이더의 적용 예시와 가이드를 확인할 수 있습니다.  
 The images below illustrate examples and guides for applying the shader.
 
-![Guide Image 2](./docs/Guide_3.png)  
+![Guide Image 3](./docs/Guide_3.png)  
 ![Guide Image 1](./docs/Guide_1.png)  
-![Guide Image 3](./docs/Guide_4.png)
-![Guide Image 3](./docs/Guide_5.png)  
-![Guide Image 3](./docs/Guide_2.png)
+![Guide Image 6](./docs/Guide_6.png)
+![Guide Image 5](./docs/Guide_5.png)  
+![Guide Image 2](./docs/Guide_2.png)
