@@ -74,8 +74,11 @@ The images below illustrate examples and guides for applying the shader.
 
 ## Other
 
+### List of Provided Lighting Nodes
+![Guide Image 8](./docs/Guide_8.png)  
+
 ### URP Lit, Unlit vs Custom Lit, Unlit
 ![Guide Image 3](./docs/Guide_3.png)  
 
 ### Custom 2D Lit
-![Guide Image 3](./docs/Guide_7.png)  
+![Guide Image 7](./docs/Guide_7.png)  

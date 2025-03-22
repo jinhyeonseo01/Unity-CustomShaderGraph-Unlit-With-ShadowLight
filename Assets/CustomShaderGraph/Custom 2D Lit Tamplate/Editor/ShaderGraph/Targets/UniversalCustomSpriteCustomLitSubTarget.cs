@@ -13,7 +13,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
             displayName = "Custom Sprite Custom Lit";
         }
 
-        protected override ShaderUtils.ShaderID shaderID => ShaderUtils.ShaderID.SG_SpriteCustomLit;
+        protected override ShaderUtils.ShaderID shaderID => ShaderUtils.ShaderID.SG_SpriteLit;
 
         public override bool IsActive() => true;
 
@@ -284,6 +284,11 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
                 { CoreKeywordDescriptors.ShadowsShadowmask },
                 { CoreKeywordDescriptors.LightLayers },
                 { CoreKeywordDescriptors.LightCookies },
+
+                { CoreKeywordDescriptors.ShapeLightType0 },
+                { CoreKeywordDescriptors.ShapeLightType1 },
+                { CoreKeywordDescriptors.ShapeLightType2 },
+                { CoreKeywordDescriptors.ShapeLightType3 },
                 { CoreKeywordDescriptors.DebugDisplay },
             };
 
@@ -301,6 +306,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
                 { CoreKeywordDescriptors.ShadowsShadowmask },
                 { CoreKeywordDescriptors.LightLayers },
                 { CoreKeywordDescriptors.LightCookies },
+
                 { CoreKeywordDescriptors.DebugDisplay },
             };
         }
@@ -309,6 +315,9 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
         #region Includes
         static class SpriteLitIncludes
         {
+
+            const string k2DLightingUtil = "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/LightingUtility.hlsl";
+            const string kSpriteLitPass = "Packages/com.unity.render-pipelines.universal/Editor/2D/ShaderGraph/Includes/SpriteLitPass.hlsl";
             const string kSpriteUnlitPass = "Packages/com.unity.render-pipelines.universal/Editor/2D/ShaderGraph/Includes/SpriteUnlitPass.hlsl";
             const string k2DNormal = "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/NormalsRenderingShared.hlsl";
             const string kSpriteNormalPass = "Packages/com.unity.render-pipelines.universal/Editor/2D/ShaderGraph/Includes/SpriteNormalPass.hlsl";
@@ -323,10 +332,11 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
                 { CoreIncludes.CorePregraph },
                 { CoreIncludes.ShaderGraphPregraph },
                 { kShadows, IncludeLocation.Pregraph },
+                { k2DLightingUtil, IncludeLocation.Pregraph },
 
                 // Post-graph
                 { CoreIncludes.CorePostgraph },
-                { kSpriteUnlitPass, IncludeLocation.Postgraph },
+                { kSpriteLitPass, IncludeLocation.Postgraph },
             };
 
             public static IncludeCollection Normal = new IncludeCollection
