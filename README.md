@@ -66,8 +66,16 @@ This package can be installed using either **Direct Project Open** or **Unity Pa
 아래 이미지를 통해 셰이더의 적용 예시와 가이드를 확인할 수 있습니다.  
 The images below illustrate examples and guides for applying the shader.
 
-![Guide Image 3](./docs/Guide_3.png)  
+### Implement
 ![Guide Image 1](./docs/Guide_1.png)  
 ![Guide Image 6](./docs/Guide_6.png)
 ![Guide Image 5](./docs/Guide_5.png)  
 ![Guide Image 2](./docs/Guide_2.png)
+
+## Other
+
+### URP Lit, Unlit vs Custom Lit, Unlit
+![Guide Image 3](./docs/Guide_3.png)  
+
+### Custom 2D Lit
+![Guide Image 3](./docs/Guide_7.png)  
