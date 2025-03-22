@@ -31,7 +31,7 @@ namespace UnityEditor.Rendering.Universal.ShaderGraph
         //        new NormalControl(CoordinateSpace.Object), ShaderStage.Fragment);
         //}
 
-        [MenuItem("Assets/Create/Shader Graph/URP/Custom Lit Shader Graph", priority = CoreUtils.Priorities.assetsCreateShaderMenuPriority)]
+        [MenuItem("Assets/Create/Shader Graph/URP/Custom Lit Shader Graph", priority = CoreUtils.Priorities.assetsCreateShaderMenuPriority + 100 + 0)]
         public static void CreateCustomLitGraph()
         {
             var target = (UniversalTarget)Activator.CreateInstance(typeof(UniversalTarget));
