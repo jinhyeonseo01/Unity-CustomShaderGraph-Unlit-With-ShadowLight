@@ -1,16 +1,10 @@
 # Unity Custom ShaderGraph-Unlit-With-Shadow
+[![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity)](https://unity3d.com)
+![Static Badge](https://img.shields.io/badge/pipeline-URP-5CB5CC?style=flat)
+![License](https://img.shields.io/github/license/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-ShadowLight)
+![Version](https://img.shields.io/github/v/release/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-ShadowLight)  
 
-**Unity의 Shader Graph 커스터마이징을 통해 직접 키워드를 정의할 필요 없이 Main Light 및 Shadow Node를 사용하는 레포지토리.**  
 
-<details>  
-  <summary>English</summary> 
-This repository enables the use of a MainLight and Shadow Node through Unity's Custom Shader Graph without requiring manual keyword definitions.
-</details>  
-<br></br>
-
-![Guide Image 3](./docs/Guide_3.png) 
-
-## 요약 / Summary
 이 레포지토리는 Unity의 Shader Graph를 커스터마이징하여 새로운 Graph를 추가함으로써, Unlit Shader 에서도 Main Light를 완전하게 사용 가능하도록 하는 레포지토리입니다.  
 
 유니티의 각종 쉐이더 함수들을 사용하기 위하여 Keyword를 직접 정의할 필요 없이 일반 Lit Shader 와 동등하게 키워드를 적용받을 수 있습니다.  
@@ -31,6 +25,10 @@ This implementation allows immediate utilization of Main Light features while ma
 </details>
 
 * * *
+
+## Preview
+
+![Guide Image 3](./docs/Guide_3.png) 
 
 ## Installation
 
