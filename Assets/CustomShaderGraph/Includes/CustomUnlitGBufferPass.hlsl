@@ -139,10 +139,9 @@ FragmentOutput frag(PackedVaryings packedInput)
     ApplyDecalToBaseColor(unpacked.positionCS, surfaceData.albedo);
 #endif
 
-    InitializeBakedGIData(unpacked, inputData);
-
     InputData inputData;
-    InitializeInputData(unpacked, inputData);
+    InitializeInputData(unpacked, surfaceDescription, inputData);
+    InitializeBakedGIData(unpacked, inputData);
 
     #if defined(_SCREEN_SPACE_OCCLUSION) && !defined(_SURFACE_TYPE_TRANSPARENT)
         float2 normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(unpacked.positionCS);
