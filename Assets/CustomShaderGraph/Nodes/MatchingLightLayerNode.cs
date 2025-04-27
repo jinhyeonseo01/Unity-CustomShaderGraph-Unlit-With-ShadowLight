@@ -1,8 +1,6 @@
 using System.Reflection;
 using UnityEngine;
 using UnityEditor.ShaderGraph;
-using static Codice.CM.Common.Purge.PurgeReport;
-
 
 
 namespace UnityEditor.ShaderGraph
