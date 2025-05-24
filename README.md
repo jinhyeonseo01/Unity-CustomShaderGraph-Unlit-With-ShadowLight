@@ -26,6 +26,16 @@ This implementation allows immediate utilization of Main Light features while ma
 
 * * *
 
+## 최신 테스트 버전 / Latest Tested Version  
+- 테스트 완료 버전 **6000.1.4f URP** (*Latest tested version: **6000.1.4f URP***)  
+
+## 시스템 요구 사항 / System Requirements
+
+- Unity **6000.1.1f0** 이상 (*Unity **6000.1.1f0** or later*)  
+- Shader Graph **17.1.0** 이상 (*Shader Graph **17.1.0** or later*)  
+
+* * *
+
 ## Preview
 
 ![Guide Image 3](./docs/Guide_3.png) 
@@ -46,16 +56,6 @@ This package can be installed using either **Direct Project Open** or **Unity Pa
 **Libraries That Work Well Together**  
  - [URP Shader Graph Custom Lighting Node](https://github.com/Cyanilux/URP_ShaderGraphCustomLighting)
    - A library that supports various light-related Shader Graph nodes.  
-
-* * *
-
-## 최신 테스트 버전 / Latest Tested Version  
-- 테스트 완료 버전 **6000.1.4f URP** (*Latest tested version: **6000.1.4f URP***)  
-
-## 시스템 요구 사항 / System Requirements
-
-- Unity **6000.1.1f0** 이상 (*Unity **6000.1.1f0** or later*)  
-- Shader Graph **17.1.0** 이상 (*Shader Graph **17.1.0** or later*)  
 
 * * *
 
