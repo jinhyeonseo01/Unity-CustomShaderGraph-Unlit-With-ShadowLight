@@ -1,9 +1,9 @@
 {
     "name" : "com.clrain.customshadergraph",
-    "version" : "1.2.3",
+    "version" : "1.3.1",
     "displayName": "Unity Custom Shader Graph - Unlit And Shadoow(Light)",
     "description" : "This repository customizes Unity's Shader Graph by adding a new graph, enabling the use of Main Light fully and seamlessly even with Unlit shaders.\nIt allows you to benefit from keywords and various Unity shader functions on par with a standard Lit Shader—without the need to define the keywords manually.\nThis means that you can immediately leverage Main Light functionality without having to explicitly define keywords like _MAIN_LIGHT_SHADOWS_CASCADE.",
-    "unity" : "6000.0",
+    "unity" : "6000.1",
     "author" : {
         "name" : "Clrain",
         "email" : "jin_hyeon_seo_01@naver.com"
@@ -16,7 +16,7 @@
         "Tools"
     ],
     "dependencies" : {
-        "com.unity.render-pipelines.universal": "17.0.4",
+        "com.unity.render-pipelines.universal": "17.1.0",
         "com.unity.feature.2d" : "1.0.0"
     }
 }

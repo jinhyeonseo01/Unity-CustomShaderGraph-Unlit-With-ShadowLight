@@ -50,12 +50,12 @@ This package can be installed using either **Direct Project Open** or **Unity Pa
 * * *
 
 ## 최신 테스트 버전 / Latest Tested Version  
-- 테스트 완료 버전 **6000.0.42f URP** (*Latest tested version: **6000.0.42f URP***)  
+- 테스트 완료 버전 **6000.1.4f URP** (*Latest tested version: **6000.1.4f URP***)  
 
 ## 시스템 요구 사항 / System Requirements
 
-- Unity **6000.0.9f0** 이상 (*Unity **6000.0.9f0** or later*)  
-- Shader Graph **17.0.3** 이상 (*Shader Graph **17.0.3** or later*)  
+- Unity **6000.1.1f0** 이상 (*Unity **6000.1.1f0** or later*)  
+- Shader Graph **17.1.0** 이상 (*Shader Graph **17.1.0** or later*)  
 
 * * *
 

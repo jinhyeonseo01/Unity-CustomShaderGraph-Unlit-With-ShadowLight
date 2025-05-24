@@ -1,32 +1,8 @@
 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Unlit.hlsl"
 
-void InitializeInputData(Varyings input,SurfaceDescription surfaceDescription, out InputData inputData)
+void InitializeInputData(Varyings input, SurfaceDescription surfaceDescription, out InputData inputData)
 {
-    /*
-    inputData = (InputData)0;
-
-    // InputData is only used for DebugDisplay purposes in Unlit, so these are not initialized.
-    #if defined(DEBUG_DISPLAY)
-    inputData.positionWS = input.positionWS;
-    inputData.positionCS = input.positionCS;
-    inputData.normalWS = input.normalWS;
-    #else
-    inputData.positionWS = half3(0, 0, 0);
-    inputData.normalWS = half3(0, 0, 1);
-    inputData.viewDirectionWS = half3(0, 0, 1);
-    #endif
-    inputData.shadowCoord = 0;
-    //inputData.fogCoord = 0;
-    //inputData.vertexLighting = half3(0, 0, 0);
-    inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactorAndVertexLight.x);
-    inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
-    inputData.bakedGI = half3(0, 0, 0);
-    //inputData.normalizedScreenSpaceUV = 0;
-    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-    inputData.shadowMask = half4(1, 1, 1, 1);
-    */
-
     inputData = (InputData)0;
 
     inputData.positionWS = input.positionWS;
@@ -159,20 +135,15 @@ void frag(
     InitializeBakedGIData(unpacked, inputData);
 
     half4 finalColor = UniversalFragmentUnlit(inputData, surfaceDescription.BaseColor, alpha);
-    finalColor += half4(surfaceDescription.Emission, 0); //Emission
-
+    finalColor.rgb = MixFog(finalColor.rgb, inputData.fogCoord);
+    finalColor += half4(surfaceDescription.Emission, 0);
+    finalColor.a = OutputAlpha(finalColor.a, isTransparent);
 
     #if defined(_SCREEN_SPACE_OCCLUSION) && !defined(_SURFACE_TYPE_TRANSPARENT)
         float2 normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(unpacked.positionCS);
         AmbientOcclusionFactor aoFactor = GetScreenSpaceAmbientOcclusion(normalizedScreenSpaceUV);
         finalColor.rgb *= aoFactor.directAmbientOcclusion;
     #endif
-
-
-    finalColor.rgb = MixFog(finalColor.rgb, inputData.fogCoord);
-    
-    finalColor.a = OutputAlpha(finalColor.a, isTransparent);
-
 
     outColor = finalColor;
 

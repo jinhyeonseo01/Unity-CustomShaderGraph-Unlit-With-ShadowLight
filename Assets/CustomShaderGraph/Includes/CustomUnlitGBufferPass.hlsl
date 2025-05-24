@@ -1,34 +1,10 @@
 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Unlit.hlsl"
-#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GBufferOutput.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderVariablesFunctions.hlsl"
 
-void InitializeInputData(Varyings input,SurfaceDescription surfaceDescription, out InputData inputData)
+void InitializeInputData(Varyings input, SurfaceDescription surfaceDescription, out InputData inputData)
 {
-    /*
-    inputData = (InputData)0;
-
-    // InputData is only used for DebugDisplay purposes in Unlit, so these are not initialized.
-    #if defined(DEBUG_DISPLAY)
-    inputData.positionWS = input.positionWS;
-    inputData.positionCS = input.positionCS;
-    inputData.normalWS = input.normalWS;
-    #else
-    inputData.positionWS = half3(0, 0, 0);
-    inputData.normalWS = half3(0, 0, 1);
-    inputData.viewDirectionWS = half3(0, 0, 1);
-    #endif
-    inputData.shadowCoord = 0;
-    //inputData.fogCoord = 0;
-    //inputData.vertexLighting = half3(0, 0, 0);
-    inputData.fogCoord = InitializeInputDataFog(float4(input.positionWS, 1.0), input.fogFactorAndVertexLight.x);
-    inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
-    inputData.bakedGI = half3(0, 0, 0);
-    //inputData.normalizedScreenSpaceUV = 0;
-    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-    inputData.shadowMask = half4(1, 1, 1, 1);
-    */
-
     inputData = (InputData)0;
 
     inputData.positionWS = input.positionWS;
@@ -102,7 +78,6 @@ void InitializeBakedGIData(Varyings input, inout InputData inputData)
 #endif
 }
 
-
 PackedVaryings vert(Attributes input)
 {
     Varyings output = (Varyings)0;
@@ -111,7 +86,7 @@ PackedVaryings vert(Attributes input)
     return packedOutput;
 }
 
-FragmentOutput frag(PackedVaryings packedInput)
+GBufferFragOutput frag(PackedVaryings packedInput)
 {
     Varyings unpacked = UnpackVaryings(packedInput);
     UNITY_SETUP_INSTANCE_ID(unpacked);
@@ -152,9 +127,6 @@ FragmentOutput frag(PackedVaryings packedInput)
     #endif
 
     surfaceData.albedo = MixFog(surfaceData.albedo, inputData.fogCoord);
-    
-    //surfaceData.alpha = OutputAlpha(surfaceData.alpha, isTransparent);
 
-
-    return SurfaceDataToGbuffer(surfaceData, inputData, float3(0,0,0), kLightingInvalid);
+    return PackGBuffersSurfaceData(surfaceData, inputData, float3(0,0,0));
 }
