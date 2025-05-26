@@ -135,7 +135,7 @@ void frag(
     InitializeBakedGIData(unpacked, inputData);
 
     half4 finalColor = UniversalFragmentUnlit(inputData, surfaceDescription.BaseColor, alpha);
-    finalColor.rgb = MixFog(finalColor.rgb, inputData.fogCoord);
+    //finalColor.rgb = MixFog(finalColor.rgb, inputData.fogCoord);
     finalColor += half4(surfaceDescription.Emission, 0);
     finalColor.a = OutputAlpha(finalColor.a, isTransparent);
 
