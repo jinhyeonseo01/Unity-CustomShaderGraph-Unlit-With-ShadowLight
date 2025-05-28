@@ -26,6 +26,17 @@ This implementation allows immediate utilization of Main Light features while ma
 
 * * *
 
+## Installation
+
+This package can be installed using either **Direct Project Open** or **Unity Package Manager (UPM)**.  
+
+  - Package Manager →  Install Package Manager from git URL
+    ``` text
+    https://github.com/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-Shadow.git?path=/Assets/CustomShaderGraph
+    ```
+  - Alternatively, Clone the repository to your local
+    *(Choose this option if direct customization is needed)*  
+
 ## 최신 테스트 버전 / Latest Tested Version  
 - 테스트 완료 버전 **6000.1.4f URP** (*Latest tested version: **6000.1.4f URP***)  
 
@@ -40,16 +51,6 @@ This implementation allows immediate utilization of Main Light features while ma
 
 ![Guide Image 3](./docs/Guide_3.png) 
 
-## Installation
-
-This package can be installed using either **Direct Project Open** or **Unity Package Manager (UPM)**.  
-
-  - Package Manager →  Install Package Manager from git URL
-    ``` text
-    https://github.com/jinhyeonseo01/Unity-CustomShaderGraph-Unlit-With-Shadow.git?path=/Assets/CustomShaderGraph
-    ```
-  - Alternatively, Clone the repository to your local
-    *(Choose this option if direct customization is needed)*  
 
 ### Compatibility  
 
